@@ -2,6 +2,8 @@
 
 import React, { useEffect } from "react";
 import countries from "./data.js";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Translate = () => {
@@ -90,6 +92,12 @@ const Translate = () => {
             });
         });
     }, []);
+    const navigate = useNavigate();
+
+    const handleViewHistory = () => {
+        navigate('/history'); // Navigate to history page
+    };
+
     return (
         <>
             <div className="above-container ">
@@ -139,6 +147,14 @@ const Translate = () => {
                 </div>
                 <button>Translate Text</button>
             </div>
+            <div>
+            <h2>Translate Text</h2>
+            
+            <button onClick={handleViewHistory} className="btn btn-secondary">
+                View Translation History
+            </button>
+        </div>
+
         </>
     );
 };
